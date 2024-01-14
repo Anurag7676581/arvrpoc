@@ -14,6 +14,6 @@ router.post("/audio", upload.single("audio"), (req, res) => {
   uploadController.uploadFile(req, res, "mp3");
 });
 
-router.post("/check/:name", uploadController.checkNameValidity);
+
 
 module.exports = router;

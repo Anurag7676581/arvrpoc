@@ -6,10 +6,8 @@ const router = express.Router();
 router.post("/save", async (req, res) => {
   try {
     const { name, assetUrl, audioUrl } = req.body;
-    if (!name || !assetUrl || !audioUrl) {
-      return res
-        .status(400)
-        .json({ error: "Name and assetUrl  are required." });
+    if (!name || !assetUrl) {
+      return res.status(400).json({ error: "Name and assetUrl are required." });
     }
     const newArModel = new ArModel({
       name,

@@ -13,8 +13,7 @@ const s3 = new AWS.S3({
 const uploadFile = async (req, res, fileType) => {
   try {
     const file = req.file;
-    const filename = req.body.name;
-
+    const filename = file.originalname; // Get the original filename
     if (!file || !file.buffer) {
       return res.status(400).send("No file uploaded or file buffer is empty.");
     }
@@ -23,10 +22,10 @@ const uploadFile = async (req, res, fileType) => {
     let contentType;
 
     if (fileType === "glb") {
-      key = `models/${filename}.glb`;
+      key = `models/${filename}`;
       contentType = "model/gltf-binary";
     } else if (fileType === "mp3") {
-      key = `audio-files/${filename}.mp3`;
+      key = `audio-files/${filename}`;
       contentType = "audio/mpeg";
     } else {
       return res.status(400).send("Invalid file type.");
