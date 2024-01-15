@@ -24,6 +24,9 @@ const uploadFile = async (req, res, fileType) => {
     if (fileType === "glb") {
       key = `models/${filename}`;
       contentType = "model/gltf-binary";
+    } else if (fileType === "usdz") {
+      key = `models/${filename}`;
+      contentType = "ios-Model/vnd.usdz+zip";
     } else if (fileType === "mp3") {
       key = `audio-files/${filename}`;
       contentType = "audio/mpeg";

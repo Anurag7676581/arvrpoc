@@ -9,6 +9,9 @@ const arModelSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+  iosUrl: {
+    type: String,
+  },
   audioUrl: {
     type: String,
   },
